@@ -27,7 +27,6 @@ public class Main {
             if (op == 4) {
                 //s.listarTurmas();
             }
-
             op = io.menu();
         }
     }

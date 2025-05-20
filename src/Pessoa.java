@@ -20,5 +20,4 @@ public class Pessoa {
         return cpf;
     }
 
-
 }

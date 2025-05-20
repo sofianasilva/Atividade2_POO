@@ -8,7 +8,6 @@ public class Data {
         this.mes = mes;
         this.ano = ano;
     }
-
     /* IMPLEMENTAR ESSA XERECA:
     O método posterior da classe Data recebe outra Data d2 como parâmetro, e retorna verdadeiro apenas quando a data em questão é posterior a d2
     */

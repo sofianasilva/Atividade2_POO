@@ -18,5 +18,4 @@ public class Sistema{
     public ArrayList<Turma> getTurma(){
         return turmas;
     }
-
 }

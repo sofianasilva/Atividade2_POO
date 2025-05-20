@@ -8,7 +8,7 @@ public class Turma {
     private ArrayList<Aluno> alunos;
     private ArrayList<Avaliacao> avs;
 
-    //IMPLEMENTAR SISTEMA DE MEDIAS DA TURMA LKKKK ALOKA MIGA
+    //IMPLEMENTAR SISTEMA DE MEDIAS DA TURMA KKKKK ALOKA MIGA
 
     public String getNome(){
         return nome;

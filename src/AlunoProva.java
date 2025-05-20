@@ -14,5 +14,4 @@ public class AlunoProva {
     public double[] getNotas(){
         return notas;
     }
-
 }

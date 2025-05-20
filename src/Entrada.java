@@ -113,5 +113,4 @@ public class Entrada {
             System.out.println("Erro: CPF duplicado. Professor não adicionado.");
         }
     }
-
 }

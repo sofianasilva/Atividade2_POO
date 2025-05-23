@@ -11,7 +11,6 @@ public class Aluno extends Pessoa{
         return nome + "(Matricula: " + matricula + ")";
     }
 
-    //mesma coisa com o piru dos alunos
     public String getMatricula(){
         return matricula;
     }

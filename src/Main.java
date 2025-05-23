@@ -1,33 +1,31 @@
-//AMIGA ESSE CODIGO EH OQ O PROFESSOR HILARIO FORNECEU OK? VAMOS MODIFICAR DE ACORDO COM O PROGRESSO DO TRABALHO TABOM?
-//
-//
-//
-//
-/**
- * Classe principal
- * @author Hilario Seibel Junior
- */
 public class Main {
     public static void main(String[] args) {
-        Entrada io = new Entrada();
-        Sistema s = new Sistema();
+        Sistema sistema = new Sistema();
+        Entrada entrada = new Entrada();
 
-        int op = io.menu();
+        int opcao;
+        do {
+            opcao = entrada.menu();
 
-        while (op != 0) {
-            if (op == 1) {
-                io.cadProf(s);
+            switch (opcao) {
+                case 1:
+                    entrada.cadProf(sistema);
+                    break;
+                case 2:
+                    entrada.cadAluno(sistema);
+                    break;
+                case 3:
+                    entrada.cadTurma(sistema);
+                    break;
+                case 4:
+                    sistema.listarTurmas();
+                    break;
+                case 0:
+                    System.out.println("Saindo do sistema...");
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
             }
-            if (op == 2) {
-                //io.cadAluno(s);
-            }
-            if (op == 3) {
-                //io.cadTurma(s);
-            }
-            if (op == 4) {
-                //s.listarTurmas();
-            }
-            op = io.menu();
-        }
+        } while (opcao != 0);
     }
 }

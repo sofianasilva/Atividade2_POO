@@ -8,11 +8,14 @@ public class Data {
         this.mes = mes;
         this.ano = ano;
     }
-    /* IMPLEMENTAR ESSA XERECA:
-    O método posterior da classe Data recebe outra Data d2 como parâmetro, e retorna verdadeiro apenas quando a data em questão é posterior a d2
-    */
 
-    //o prof faz assim nas atividades amo roubei dele a formataçao
+    public boolean posterior(Data d2) {
+        if (ano > d2.ano) return true;
+        if (ano == d2.ano && mes > d2.mes) return true;
+        if (ano == d2.ano && mes == d2.mes && dia > d2.dia) return true;
+        return false;
+    }
+
     public String toString(){
         return dia + "/" + mes + "/" + ano;
     }

@@ -2,10 +2,18 @@ public class AlunoProva {
     private Aluno aluno;
     private double[] notas;
 
-    /* IMPLEMENTAR ESSE PIRU DE METODO:
-    O método nota da classe Prova recebe o cpf de um aluno no array, acessa o objeto AlunoProva do aluno
-    com este cpf, e retorna a nota total que ele tirou na prova. O método notaTotal da classe AlunoProva simplesmente soma as notas do aluno em cada questão.
-    */
+    public AlunoProva(Aluno aluno, double[] notas){
+        this.aluno = aluno;
+        this.notas = notas;
+    }
+
+    public double notaTotal(){
+        double total = 0;
+        for (double nota : notas){
+            total += nota;
+        }
+        return total;
+    }
 
     public Aluno getAluno(){
         return aluno;

@@ -8,7 +8,13 @@ public abstract class Avaliacao {
     protected Data dtAplic;
     protected double valor;
 
-    //IMPLEMENTAR LEITURA DO TIPO DE AVALIACAO, COM NOME, DATA (DIA MES ANO) E VALORES DA NOTA
+    public Avaliacao(String nome, Data dtAplic, double valor){
+        this.nome = nome;
+        this.dtAplic = dtAplic;
+        this.valor = valor;
+    }
+
+    public abstract double nota(String cpf);
 
     public String getNome(){
         return nome;

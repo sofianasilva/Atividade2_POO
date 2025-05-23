@@ -2,10 +2,21 @@ public class Prova extends Avaliacao{
     private int nQuestoes;
     private AlunoProva [] notas;
 
-    /* IMPLEMENTAR ESSA XANA DE METODO:
-    O método nota da classe Prova recebe o cpf de um aluno no array, acessa o objeto AlunoProva do aluno
-    com este cpf, e retorna a nota total que ele tirou na prova. O método notaTotal da classe AlunoProva simplesmente soma as notas do aluno em cada questão.
-    */
+    public Prova(String nome, Data dtAplic, double valor, int nQuestoes, AlunoProva[] notas){
+        super(nome, dtAplic, valor);
+        this.nQuestoes = nQuestoes;
+        this.notas = notas;
+    }
+
+    @Override
+    public double nota(String cpf){
+        for (AlunoProva ap: notas){
+            if (ap.getAluno().getCpf().equals(cpf)){
+                return ap.notaTotal();
+            }
+        }
+        return 0;
+    }
 
     public int getNQuestoes(){
         return nQuestoes;

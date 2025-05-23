@@ -70,6 +70,7 @@ public class Entrada {
             System.out.println("Erro: CPF duplicado. Professor não adicionado.");
         }
     }
+<<<<<<< HEAD
 
     public void cadAluno(Sistema s){
 
@@ -80,4 +81,6 @@ public class Entrada {
     }
 
     
+=======
+>>>>>>> f7b6d624077b81bdda8bf9c88b3ac38077a6c5cc
 }

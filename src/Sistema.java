@@ -32,6 +32,7 @@ public class Sistema{
         return null;
     }
 
+<<<<<<< HEAD
 
 
 
@@ -43,6 +44,8 @@ public class Sistema{
 
 
 
+=======
+>>>>>>> f7b6d624077b81bdda8bf9c88b3ac38077a6c5cc
     public ArrayList<Professor> getProfessores(){
         return professores;
     }

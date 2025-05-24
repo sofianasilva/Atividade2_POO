@@ -9,13 +9,14 @@ public class Data {
         this.ano = ano;
     }
 
-    public boolean posterior(Data d2) {
+    public boolean posterior(Data d2){
         if (ano > d2.ano) return true;
         if (ano == d2.ano && mes > d2.mes) return true;
         if (ano == d2.ano && mes == d2.mes && dia > d2.dia) return true;
         return false;
     }
 
+    @Override
     public String toString(){
         return dia + "/" + mes + "/" + ano;
     }
@@ -31,4 +32,5 @@ public class Data {
     public int getAno(){
         return ano;
     }
+
 }

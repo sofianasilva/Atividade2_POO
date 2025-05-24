@@ -32,20 +32,47 @@ public class Sistema{
         return null;
     }
 
-<<<<<<< HEAD
+    public Aluno encontrarAluno(String matricula){
+        for (Aluno a : alunos){
+            if (a.getMatricula().equals(matricula)){
+                return a;
+            }
+        }
+        return null;
+    }
 
+    public void listarProfessores() {
+        if (professores.isEmpty()) {
+            System.out.println("Nenhum professor cadastrado.");
+            return;
+        }
+        System.out.println("Professores cadastrados:");
+        for (Professor p : professores) {
+            System.out.println("* " + p);
+        }
+    }
 
+    public void listarAlunos() {
+        if (alunos.isEmpty()) {
+            System.out.println("Nenhum aluno cadastrado.");
+            return;
+        }
+        System.out.println("Alunos cadastrados:");
+        for (Aluno a : alunos) {
+            System.out.println("* " + a);
+        }
+    }
 
-
-
-
-
+    public void listarTurmas(){
+        if(turmas.isEmpty()){
+            System.out.println("\nNenhuma turma cadastrada.");
+            return;
+        }
+            for (Turma t : turmas){
+                t.medias();
+            }
+        }
     
-
-
-
-=======
->>>>>>> f7b6d624077b81bdda8bf9c88b3ac38077a6c5cc
     public ArrayList<Professor> getProfessores(){
         return professores;
     }

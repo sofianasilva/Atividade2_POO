@@ -1,4 +1,4 @@
-public class Prova extends Avaliacao{
+public class Prova extends Avaliacao {
     private int nQuestoes;
     private AlunoProva [] notas;
 

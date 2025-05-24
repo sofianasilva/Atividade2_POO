@@ -2,10 +2,20 @@ public class GrupoTrabalho {
     private Aluno[] alunos;
     private double nota;
 
-    /* IMPLEMENTAR ESSE PENIS PENIS HE HE HE:
-    • Todo Trabalho possui um número máximo de integrantes no grupo e um array com objetos da classe GrupoTrabalho para cada grupo que fez este trabalho. A classe
-    GrupoTrabalho armazena o array de alunos do grupo e a nota do grupo. Há um método para verificar se um aluno pertence ao grupo, dado seu cpf.
-    */
+    public GrupoTrabalho(Aluno[] alunos, double nota){
+        this.alunos = alunos;
+        this.nota = nota;
+    }
+
+    public boolean alunoNoGrupo(String cpf){
+        for (Aluno a: alunos){
+            if (a.getCpf().equals(cpf)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public double getNota(){
         return nota;
     }

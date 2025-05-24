@@ -9,4 +9,9 @@ public class Professor extends Pessoa {
     public double getSalario(){
         return salario;
     }
+
+    @Override
+    public String toString() {
+        return nome + " (CPF: " + cpf + ")";
+    }
 }

@@ -22,4 +22,9 @@ public class AlunoProva {
     public double[] getNotas(){
         return notas;
     }
+
+    public String getCpf() {
+    return aluno.getCpf();
+    }
+
 }

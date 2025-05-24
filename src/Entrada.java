@@ -11,67 +11,35 @@ import java.util.ArrayList;
 public class Entrada {
     public Scanner input;
 
-    /**
-     * Construtor da classe Entrada
-     * Se houver um arquivo input.txt, define que o Scanner vai ler deste arquivo.
-     * Se o arquivo não existir, define que o Scanner vai ler da entrada padrão (teclado)
-     */
     public Entrada() {
         try {
-            // Se houver um arquivo input.txt, o Scanner vai ler dele.
             this.input = new Scanner(new FileInputStream("input.txt"));
         } catch (FileNotFoundException e) {
-            // Caso contrário, vai ler do teclado.
             this.input = new Scanner(System.in);
         }
     }
 
-    /**
-     * Faz a leitura de uma linha inteira
-     * Ignora linhas começando com #, que vão indicar comentários no arquivo de entrada:
-     * @param msg: Mensagem que será exibida ao usuário
-     * @return Uma String contendo a linha que foi lida
-     */
     public String lerLinha(String msg) {
-        // Imprime uma mensagem ao usuário, lê uma e retorna esta linha
         System.out.print(msg);
         String linha = this.input.nextLine();
 
-        // Ignora linhas começando com #, que vão indicar comentários no arquivo de entrada:
         while (linha.startsWith("#")) {
             linha = this.input.nextLine();
         }
         return linha;
     }
 
-    /**
-     * Faz a leitura de um número inteiro
-     * @param msg: Mensagem que será exibida ao usuário
-     * @return O número digitado pelo usuário convertido para int
-     */
     public int lerInteiro(String msg) {
-        // Imprime uma mensagem ao usuário, lê uma linha contendo um inteiro e retorna este inteiro
         String linha = this.lerLinha(msg);
         return Integer.parseInt(linha);
     }
 
-    /**
-     * Faz a leitura de um double
-     * @param msg: Mensagem que será exibida ao usuário
-     * @return O número digitado pelo usuário convertido para double
-     */
     public double lerDouble(String msg) {
-        // Imprime uma mensagem ao usuário, lê uma linha contendo um double e retorna este double
         String linha = this.lerLinha(msg);
         return Double.parseDouble(linha);
     }
 
-    /**
-    * Imprime o menu principal, lê a opção escolhida pelo usuário e retorna a opção selecionada.
-    * @return Inteiro contendo a opção escolhida pelo usuário
-    */
     public int menu() {
-        // Imprime o menu principal, lê a opção escolhida pelo usuário e retorna a opção selecionada.
         String msg = "*********************\n" +
                     "Escolha uma opção:\n" +
                     "1) Cadastrar professor:\n" +
@@ -91,10 +59,6 @@ public class Entrada {
         return op;
     }
 
-    /**
-     * Lê os dados de um novo Professor e cadastra-o no sistema.
-     * @param s: Um objeto da classe Sistema
-     */
     public void cadProf(Sistema s) {
         System.out.println("\nCadastro de Professor:");
         String nome = this.lerLinha("Digite o nome do professor: ");
@@ -110,10 +74,6 @@ public class Entrada {
         }
     }
 
-    /**
-     * Lê os dados de um novo Aluno e cadastra-o no sistema.
-     * @param s: Um objeto da classe Sistema
-     */
     public void cadAluno(Sistema s) {
         System.out.println("\nCadastro de Aluno:");
         String nome = this.lerLinha("Digite o nome do aluno: ");
@@ -129,10 +89,6 @@ public class Entrada {
         }
     }
 
-    /**
-     * Lê os dados de uma nova Turma e cadastra-a no sistema.
-     * @param s: Um objeto da classe Sistema
-     */
     public void cadTurma(Sistema s) {
         System.out.println("\nCadastro de Turma:");
         String nomeDisciplina = this.lerLinha("Digite o nome da disciplina: ");
@@ -154,7 +110,7 @@ public class Entrada {
             Aluno aluno = s.encontrarAluno(matricula);
             if (aluno == null) {
                 System.out.println("Aluno não encontrado!");
-                i--; // Repete a iteração
+                i--; 
             } else {
                 alunosTurma.add(aluno);
             }
@@ -176,7 +132,7 @@ public class Entrada {
                 av = lerTrabalho(s, alunosTurma);
             } else {
                 System.out.println("Opção inválida! Avaliação não cadastrada.");
-                i--; // Repete a iteração
+                i--; 
                 continue;
             }
             
@@ -187,12 +143,6 @@ public class Entrada {
         System.out.println("Turma cadastrada com sucesso!");
     }
 
-    /**
-     * Lê os dados de uma Prova e retorna o objeto criado
-     * @param s: Sistema onde os alunos estão cadastrados
-     * @param alunos: Lista de alunos que farão a prova
-     * @return Objeto Prova criado
-     */
     private Prova lerProva(Sistema s, ArrayList<Aluno> alunos) {
         String nome = this.lerLinha("Informe o nome desta prova: ");
         int dia = this.lerInteiro("Digite o dia da prova: ");
@@ -212,12 +162,6 @@ public class Entrada {
         return new Prova(nome, data, valor, nQuestoes, notas);
     }
 
-    /**
-     * Lê os dados de um AlunoProva (notas de um aluno em uma prova)
-     * @param aluno: Aluno que fez a prova
-     * @param nQuestoes: Número de questões da prova
-     * @return Objeto AlunoProva criado
-     */
     private AlunoProva lerAlunoProva(Aluno aluno, int nQuestoes) {
         double[] notas = new double[nQuestoes];
         for (int i = 0; i < nQuestoes; i++) {
@@ -226,12 +170,6 @@ public class Entrada {
         return new AlunoProva(aluno, notas);
     }
 
-    /**
-     * Lê os dados de um Trabalho e retorna o objeto criado
-     * @param s: Sistema onde os alunos estão cadastrados
-     * @param alunos: Lista de alunos que farão o trabalho
-     * @return Objeto Trabalho criado
-     */
     private Trabalho lerTrabalho(Sistema s, ArrayList<Aluno> alunos) {
         String nome = this.lerLinha("Informe o nome desta avaliação: ");
         int dia = this.lerInteiro("Digite o dia do trabalho: ");
@@ -252,12 +190,6 @@ public class Entrada {
         return new Trabalho(nome, data, valor, nIntegrantes, grupos);
     }
 
-    /**
-     * Lê os dados de um GrupoTrabalho e retorna o objeto criado
-     * @param s: Sistema onde os alunos estão cadastrados
-     * @param nIntegrantes: Número máximo de integrantes no grupo
-     * @return Objeto GrupoTrabalho criado
-     */
     private GrupoTrabalho lerGrupoTrabalho(Sistema s, int nIntegrantes) {
         int qtd = this.lerInteiro("Digite o número de alunos neste grupo: ");
         if (qtd > nIntegrantes) {
@@ -271,7 +203,7 @@ public class Entrada {
             Aluno a = s.encontrarAluno(matricula);
             if (a == null) {
                 System.out.println("Aluno não encontrado!");
-                i--; // Repete a iteração
+                i--; 
             } else {
                 alunosGrupo[i] = a;
             }
